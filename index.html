@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Погода</title>
+    <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
 <header>
@@ -15,44 +16,77 @@
 </header>
 <main>
     <section class="picked">
-        <h3>
-            Saint Petersburg
-        </h3>
-        <div>
-            <img alt="Иконка погоды">
-            <div>
-                8 °C
+        <div class="briefly">
+            <h3>
+                Saint Petersburg
+            </h3>
+            <div class="temperature">
+                <img class="weather" alt="Иконка погоды" src="img/weather-mock.png" >
+                <div class="cels">
+                    8°C
+                </div>
             </div>
         </div>
-        <ul>
-            <li>Ветер</li>
-            <li>Облачность</li>
-            <li>Давление</li>
-            <li>Влажность</li>
-            <li>Координаты</li>
+        <ul class="characteristics">
+            <li>Ветер<span class="value">Moderate breeze, 6.0m/s, North-northwest</span></li>
+            <li>Облачность<span class="value">Broken clouds</span></li>
+            <li>Давление<span class="value">1013 hpa</span></li>
+            <li>Влажность<span class="value">52 %</span></li>
+            <li>Координаты<span class="value">[59.88, 30.42]</span></li>
         </ul>
     </section>
-    <section>
+    <section class="favourites">
         <h2>
             Избранное
         </h2>
-        <input type="search" placeholder="Добавить новый город">
-        <button type="submit">+</button>
-        <ul>
+        <form>
+            <input type="search" placeholder="Добавить новый город">
+            <button type="submit"></button>
+        </form>
+        <ul class="cities">
             <li>
-                <h3>Moscow</h3>
-                <div>
-                    <img alt="Иконка погоды">
-                    <div>
-                        8 °C
+                <div class="briefly">
+                    <h3>
+                        Moscow
+                    </h3>
+                    <div class="temperature">
+
+                        <img class="weather" alt="Иконка погоды" src="img/weather-mock.png" >
+                        <div class="cels">
+                            8 °C
+                        </div>
+
                     </div>
+                    <button class="close"></button>
                 </div>
-                <ul>
-                    <li>Ветер</li>
-                    <li>Облачность</li>
-                    <li>Давление</li>
-                    <li>Влажность</li>
-                    <li>Координаты</li>
+                <ul class="characteristics">
+                    <li>Ветер<span class="value">Moderate breeze, 6.0m/s, North-northwest</span></li>
+                    <li>Облачность<span class="value">Broken clouds</span></li>
+                    <li>Давление<span class="value">1013 hpa</span></li>
+                    <li>Влажность<span class="value">52 %</span></li>
+                    <li>Координаты<span class="value">[59.88, 30.42]</span></li>
+                </ul>
+            </li>
+
+            <li>
+                <div class="briefly">
+                    <h3>
+                        Hong Kong
+                    </h3>
+                    <div class="temperature">
+                        <img class="weather" alt="Иконка погоды" src="img/weather-mock.png" >
+                        <div class="cels">
+                            8 °C
+                        </div>
+                    </div>
+                    <button class="close"></button>
+                </div>
+                <ul class="characteristics">
+                    <li>Ветер<span class="value">Moderate breeze, 6.0m/s, North-northwest</span></li>
+                    <li>Облачность<span class="value">Broken clouds</span></li>
+                    <li>Давление<span class="value">1013 hpa</span></li>
+                    <li>Влажность<span class="value">52 %</span></li>
+                    <li>Координаты<span class="value">[59.88, 30.42]</span></li>
                 </ul>
             </li>
         </ul>

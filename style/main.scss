@@ -1,0 +1,162 @@
+@import "reset.scss";
+@import "vars.scss";
+
+.characteristics {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
+
+  li {
+    background-color: $color_mark;
+    padding: 7px;
+    margin: 2px;
+    border-radius: 5px;
+
+    .value {
+      color: $color_info;
+      font-size: $font_size_characteristics_picked_values;
+      float: right;
+    }
+  }
+}
+
+body {
+  padding: 20px;
+  color: $color_main;
+
+}
+
+h1 {
+
+  font-size: $font_size_h1;
+}
+
+
+h2, h3 {
+
+  font-size: $font_size_h2_h3;
+}
+
+button {
+  outline: none;
+  font-size: $font_size_button;
+  background-color: $color_main;
+  color: $color_mark;
+  padding: 0 10px;
+  border-radius: 20px;
+  border: 1px solid $color_info;
+  cursor: pointer;
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+.temperature {
+  display: grid;
+  grid-template-areas: "weather cels";
+  align-items: center;
+  .cels{
+    grid-area: cels;
+  }
+  .weather{
+    grid-area: weather;
+  }
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+
+  button {
+    margin-left: 25vw;
+    height: $font_size_h1;
+  }
+}
+
+.picked {
+  column-gap: 5vw;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  img {
+    justify-self: center;
+    margin-top: 10px;
+    border: $color_main 4px solid;
+  }
+
+  .cels {
+    font-size: $font_size_temperature;
+  }
+
+  li {
+    font-size: $font_size_characteristics_picked;
+  }
+}
+
+.favourites {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  form {
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 300px;
+    margin: 0 auto;
+
+    input {
+      font-size: $font_size_input;
+    }
+
+    button {
+      width: 40px;
+      height: font_(19,25);
+      border: none;
+      background: $color_main;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+
+      &:before {
+        content: "\27A1";
+        font-family: FontAwesome;
+        font-size: 16px;
+        color: #F9F0DA;
+      }
+    }
+  }
+}
+
+.cities {
+  grid-column: 1/3;
+  display: grid;
+  column-gap: 5vw;
+  grid-template-columns: repeat(2, 1fr);
+  .briefly {
+    grid-column: 1/3;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    .temperature {
+      margin-left: 5vw;
+      grid-template-areas: "cels weather";
+      align-items: center;
+      column-gap: 5px;
+    }
+    img {
+      justify-self: center;
+      border: $color_main 2px solid;
+      height: $font_size_h2_h3;
+    }
+  }
+  .close {
+    &:before{
+      content: "\2716";
+    }
+  }
+}
+
