@@ -62,7 +62,7 @@ h1 {
   font-size: calc(20px + (42 - 20)*(100vw / 1488)); }
 
 h2, h3 {
-  font-size: calc(15px + (37 - 15)*(100vw / 1488)); }
+  font-size: calc(15px + (30 - 15)*(100vw / 1488)); }
 
 button {
   outline: none;
@@ -151,8 +151,21 @@ header {
     .cities .briefly img {
       justify-self: center;
       border: #a6bdda 2px solid;
-      height: calc(15px + (37 - 15)*(100vw / 1488)); }
+      height: calc(15px + (30 - 15)*(100vw / 1488)); }
   .cities .close:before {
     content: "\2716"; }
+
+@media (max-width: 500px) {
+  .favourites {
+    grid-column: 1;
+    grid-template-columns: repeat(1, 1fr); }
+    .favourites form {
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin: 0; }
+
+  .cities {
+    grid-column: 1;
+    grid-template-columns: repeat(1, 1fr); } }
 
 /*# sourceMappingURL=main.css.map */
