@@ -1,0 +1,26 @@
+@function font_($min, $max) {
+  @return calc(#{$min}px + (#{$max} - #{$min})*(100vw / 1488));
+}
+$font_size_h1: font_(20,42);
+$font_size_button: font_(10,12);
+$font_size_temperature: font_(10,100);
+$font_size_h2_h3: font_(15,30);
+$font_size_input: font_(12,15);
+$font_size_characteristics_picked: font_(10,30);
+$font_size_characteristics_picked_values: font_(5,25);
+
+
+
+
+
+$color_main: #a6bdda;
+$color_mark: #586277;
+$color_info:#b8c8da;
+
+
+.picked{
+  img {
+    position: relative;
+    height: 70%;
+  }
+}
