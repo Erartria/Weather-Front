@@ -73,6 +73,7 @@ header {
   button {
     margin-left: 25vw;
     height: $font_size_h1;
+
   }
 }
 
@@ -105,28 +106,24 @@ header {
     position: relative;
     align-items: flex-end;
     justify-content: flex-end;
-    width: 300px;
+    max-width: 300px;
     margin: 0 auto;
 
     input {
       font-size: $font_size_input;
     }
+  }
+}
 
-    button {
-      width: 40px;
-      height: font_(19,25);
-      border: none;
-      background: $color_main;
-      border-radius: 0 5px 5px 0;
-      cursor: pointer;
-
-      &:before {
-        content: "\27A1";
-        font-family: FontAwesome;
-        font-size: 16px;
-        color: #F9F0DA;
-      }
-    }
+#city_add_btn {
+  width: 40px;
+  height: font_(19,25);
+  border: none;
+  background-image: url('/img/png/search_arrow.png');
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  &:hover {
+    background-color: ;
   }
 }
 
@@ -149,7 +146,7 @@ header {
     img {
       justify-self: center;
       border: $color_main 2px solid;
-      height: $font_size_h2_h3;
+      max-height: $font_size_h2_h3;
     }
   }
   .close {

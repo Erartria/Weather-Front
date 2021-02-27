@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Погода</title>
     <link rel="stylesheet" href="style/main.css">
+    <link rel="shortcut icon" href="img/png/icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
 <header>
@@ -28,11 +30,21 @@
             </div>
         </div>
         <ul class="characteristics">
-            <li>Ветер<span class="value">Moderate breeze, 6.0m/s, North-northwest</span></li>
-            <li>Облачность<span class="value">Broken clouds</span></li>
-            <li>Давление<span class="value">1013 hpa</span></li>
-            <li>Влажность<span class="value">52 %</span></li>
-            <li>Координаты<span class="value">[59.88, 30.42]</span></li>
+            <li>Ветер
+                <div class="value">Moderate breeze, 6.0m/s, North-northwest</div>
+            </li>
+            <li>Облачность
+                <div class="value">Broken clouds</div>
+            </li>
+            <li>Давление
+                <div class="value">1013 hpa</div>
+            </li>
+            <li>Влажность
+                <div class="value">52 %</div>
+            </li>
+            <li>Координаты
+                <div class="value">[59.88, 30.42]</div>
+            </li>
         </ul>
     </section>
     <section class="favourites">
@@ -41,7 +53,7 @@
         </h2>
         <form>
             <input type="search" placeholder="Добавить новый город">
-            <button type="submit"></button>
+            <button type="submit" id="city_add_btn"></button>
         </form>
         <ul class="cities">
             <li>
