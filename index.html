@@ -9,50 +9,86 @@
     <h1>
         Погода здесь
     </h1>
-    <button>
+    <button id="refresh">
         Обновить геолокацию
     </button>
 </header>
 <main>
-    <section class="picked">
-        <h3>
+    <section id="mylocationweather">
+        <h3 class="cityname">
             Saint Petersburg
         </h3>
-        <div>
-            <img alt="Иконка погоды">
-            <div>
+        <div class="briefly">
+            <img alt="Иконка погоды" class="weathericon picked">
+            <div class="temperature">
                 8 °C
             </div>
         </div>
-        <ul>
-            <li>Ветер</li>
-            <li>Облачность</li>
-            <li>Давление</li>
-            <li>Влажность</li>
-            <li>Координаты</li>
+        <ul class="characteristics">
+            <li>
+                <div class="chname">Ветер</div>
+                <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
+            </li>
+            <li>
+                <div class="chname">Облачность</div>
+                <div class="value">Broken clouds</div>
+            </li>
+            <li>
+                <div class="chname">Давление</div>
+                <div class="value">1013 hpa</div>
+            </li>
+            <li>
+                <div class="chname">Влажность</div>
+                <div class="value">52 %</div>
+            </li>
+            <li>
+                <div class="chname">Ветер</div>
+                <div class="value">[59.88, 30.42]</div>
+            </li>
         </ul>
     </section>
-    <section>
+    <section id="addition">
         <h2>
             Избранное
         </h2>
-        <input type="search" placeholder="Добавить новый город">
-        <button type="submit">+</button>
+        <form>
+            <input type="search" placeholder="Добавить новый город">
+            <button type="submit" id="addcity">+</button>
+        </form>
+    </section>
+    <section class="favorites">
         <ul>
             <li>
-                <h3>Moscow</h3>
-                <div>
-                    <img alt="Иконка погоды">
-                    <div>
+                <h3 class="cityname">
+                    Moscow
+                </h3>
+                <div class="briefly">
+                    <img alt="Иконка погоды" class="weathericon picked">
+                    <div class="temperature">
                         8 °C
                     </div>
                 </div>
-                <ul>
-                    <li>Ветер</li>
-                    <li>Облачность</li>
-                    <li>Давление</li>
-                    <li>Влажность</li>
-                    <li>Координаты</li>
+                <ul class="characteristics">
+                    <li>
+                        <div class="chname">Ветер</div>
+                        <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
+                    </li>
+                    <li>
+                        <div class="chname">Облачность</div>
+                        <div class="value">Broken clouds</div>
+                    </li>
+                    <li>
+                        <div class="chname">Давление</div>
+                        <div class="value">1013 hpa</div>
+                    </li>
+                    <li>
+                        <div class="chname">Влажность</div>
+                        <div class="value">52 %</div>
+                    </li>
+                    <li>
+                        <div class="chname">Ветер</div>
+                        <div class="value">[59.88, 30.42]</div>
+                    </li>
                 </ul>
             </li>
         </ul>
