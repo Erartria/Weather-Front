@@ -1,26 +1,12 @@
-@function font_($min, $max) {
-  @return calc(#{$min}px + (#{$max} - #{$min})*(100vw / 1488));
-}
-$font_size_h1: font_(20,42);
-$font_size_button: font_(10,12);
-$font_size_temperature: font_(10,100);
-$font_size_h2_h3: font_(15,30);
-$font_size_input: font_(12,15);
-$font_size_characteristics_picked: font_(10,30);
-$font_size_characteristics_picked_values: font_(5,25);
+$h1_font: 8vmin;
+$button_font: 2vmin;
+$city_font: 5vmin;
+$temperature_font: 8vmin;
+$characteristics_font: 3vmin;
 
 
-
-
-
-$color_main: #a6bdda;
-$color_mark: #586277;
-$color_info:#b8c8da;
-
-
-.picked{
-  img {
-    position: relative;
-    height: 70%;
-  }
-}
+$button_b_color: #8DA7E9;
+$button_f_color: #212D43;
+$characteristics_f_color: #2a3e60;
+$characteristics_b_color: #7e9cdf;
+$characteristics_values_color: #364564;
