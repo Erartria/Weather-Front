@@ -56,12 +56,12 @@ h2 {
 
 .wrapper {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: left; }
 
 .cityname {
   color: #7e9cdf;
-  font-size: 5vmin;
-  white-space: nowrap; }
+  font-size: 5vmin; }
 
 .briefly {
   display: grid;
@@ -119,6 +119,8 @@ header {
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center; }
+  #addition .wrapper {
+    justify-content: center; }
   #addition #add {
     justify-self: center; }
     #addition #add input {
@@ -151,6 +153,18 @@ header {
       grid-column: 1/4; }
 
 @media screen and (max-width: 415px) {
+  header .wrapper {
+    justify-content: flex-end; }
+    header .wrapper #refresh {
+      font-size: 0;
+      padding: 1vmin;
+      background-image: url(../img/png/refresh_button.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 6vmin;
+      width: 8vmin; }
+
   #mylocationweather .temperature {
     justify-self: center; }
 

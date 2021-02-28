@@ -1,20 +1,39 @@
-@media screen and (max-width:415px) {
+@media screen and (max-width: 415px) {
+  header {
+    .wrapper {
+      justify-content: flex-end;
+      #refresh {
+        font-size: 0;
+        padding: 1vmin;
+        background-image: url(../img/png/refresh_button.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: $h1_font - 2vmin;
+        width: $h1_font;
+      }
+    }
+  }
   #mylocationweather {
     .temperature {
       justify-self: center;
     }
   }
-  .favoritescities{
+  .favoritescities {
     grid-template-columns: 1fr;
     row-gap: 1vmin;
+
     .city {
       grid-template-areas: "cityname briefly removebtn";
+
       .cityname {
         grid-area: cityname;
       }
+
       .briefly {
         grid-area: briefly;
       }
+
       .removecity {
         grid-area: removebtn
       }
@@ -23,7 +42,8 @@
   }
   #addition {
     grid-template-columns: 1fr;
-    #add{
+
+    #add {
       justify-self: left;
     }
   }

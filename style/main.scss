@@ -25,12 +25,13 @@ h2 {
 .wrapper {
   display: flex;
   align-items: center;
+  justify-content: left;
 }
 
 .cityname {
   color: $city_f_color;
   font-size: $city_font;
-  white-space: nowrap;
+  
 }
 
 .briefly {
@@ -71,6 +72,7 @@ header {
   }
 
   button {
+
     font-size: $button_font;
   }
 }
@@ -118,10 +120,11 @@ header {
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
-
+  .wrapper {
+    justify-content: center;
+  }
   #add {
     justify-self: center;
-
     input {
       height: $button_font*2;
       width: $button_font*14;
