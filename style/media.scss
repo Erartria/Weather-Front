@@ -1,0 +1,36 @@
+@media screen and (max-width:415px) {
+  #mylocationweather {
+    .temperature {
+      justify-self: center;
+    }
+  }
+  .favoritescities{
+    grid-template-columns: 1fr;
+    row-gap: 1vmin;
+    .city {
+      grid-template-areas: "cityname briefly removebtn";
+      .cityname {
+        grid-area: cityname;
+      }
+      .briefly {
+        grid-area: briefly;
+      }
+      .removecity {
+        grid-area: removebtn
+      }
+    }
+
+  }
+  #addition {
+    grid-template-columns: 1fr;
+    #add{
+      justify-self: left;
+    }
+  }
+  .briefly {
+    grid-column: 1/3;
+  }
+  .characteristics {
+    grid-column: 1/3;
+  }
+}
