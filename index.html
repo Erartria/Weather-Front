@@ -56,44 +56,85 @@
         <h2>
             Избранное
         </h2>
-        <form>
+        <form id="add">
             <input type="search" placeholder="Добавить новый город">
             <button type="submit" id="addcity">+</button>
         </form>
     </section>
     <section class="favorites">
-        <ul>
-            <h3 class="cityname">
-                Moscow
-            </h3>
-            <div class="briefly">
-                <img alt="Иконка погоды" class="weathericon picked">
-                <div class="temperature">
-                    8 °C
+        <ul class="favoritescities">
+            <li class="city">
+                <h3 class="cityname">
+                    Moscow
+                </h3>
+                <div class="briefly">
+                    <img alt="Иконка погоды" class="weathericon" src="img/png/broken_clouds_mock.png">
+                    <div class="temperature">
+                        8 °C
+                    </div>
                 </div>
-            </div>
-            <ul class="characteristics">
-                <li>
-                    <div class="chname">Ветер</div>
-                    <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
-                </li>
-                <li>
-                    <div class="chname">Облачность</div>
-                    <div class="value">Broken clouds</div>
-                </li>
-                <li>
-                    <div class="chname">Давление</div>
-                    <div class="value">1013 hpa</div>
-                </li>
-                <li>
-                    <div class="chname">Влажность</div>
-                    <div class="value">52 %</div>
-                </li>
-                <li>
-                    <div class="chname">Ветер</div>
-                    <div class="value">[59.88, 30.42]</div>
-                </li>
-            </ul>
+                <div class="wrapper">
+                    <button class="removecity">x</button>
+                </div>
+                <ul class="characteristics">
+                    <li>
+                        <div class="chname">Ветер</div>
+                        <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
+                    </li>
+                    <li>
+                        <div class="chname">Облачность</div>
+                        <div class="value">Broken clouds</div>
+                    </li>
+                    <li>
+                        <div class="chname">Давление</div>
+                        <div class="value">1013 hpa</div>
+                    </li>
+                    <li>
+                        <div class="chname">Влажность</div>
+                        <div class="value">52 %</div>
+                    </li>
+                    <li>
+                        <div class="chname">Ветер</div>
+                        <div class="value">[59.88, 30.42]</div>
+                    </li>
+                </ul>
+            </li>
+            <li class="city">
+                <h3 class="cityname">
+                    Hong-Kong
+                </h3>
+                <div class="briefly">
+                    <img alt="Иконка погоды" class="weathericon" src="img/png/broken_clouds_mock.png">
+                    <div class="temperature">
+                        8 °C
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <button class="removecity">x</button>
+                </div>
+                <ul class="characteristics">
+                    <li>
+                        <div class="chname">Ветер</div>
+                        <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
+                    </li>
+                    <li>
+                        <div class="chname">Облачность</div>
+                        <div class="value">Broken clouds</div>
+                    </li>
+                    <li>
+                        <div class="chname">Давление</div>
+                        <div class="value">1013 hpa</div>
+                    </li>
+                    <li>
+                        <div class="chname">Влажность</div>
+                        <div class="value">52 %</div>
+                    </li>
+                    <li>
+                        <div class="chname">Ветер</div>
+                        <div class="value">[59.88, 30.42]</div>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </section>
 </main>
