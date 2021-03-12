@@ -60,20 +60,16 @@ h2 {
 }
 
 body {
-  display: grid;
   padding: 2%;
 }
 
 header {
-  display: grid;
-  grid-template-columns: 5fr 3fr;
-
+  display: flex;
   h1 {
     font-size: $h1_font;
   }
-
   button {
-
+    margin-left: 50vmin;
     font-size: $button_font;
   }
 }

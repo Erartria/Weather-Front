@@ -82,15 +82,14 @@ h2 {
     justify-self: left; }
 
 body {
-  display: grid;
   padding: 2%; }
 
 header {
-  display: grid;
-  grid-template-columns: 5fr 3fr; }
+  display: flex; }
   header h1 {
     font-size: 8vmin; }
   header button {
+    margin-left: 50vmin;
     font-size: 2vmin; }
 
 .characteristics {
@@ -159,7 +158,7 @@ header {
       display: block;
       grid-column: 1/4; }
 
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 500px) {
   header .wrapper {
     justify-content: flex-end; }
     header .wrapper #refresh {
