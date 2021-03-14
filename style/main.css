@@ -72,7 +72,7 @@ h2 {
     grid-area: weathericon;
     max-width: 7.5vmin; }
   .briefly .picked {
-    max-width: 40vmin; }
+    max-width: 35vmin; }
   .briefly .temperature {
     white-space: nowrap;
     grid-area: temperature;
@@ -102,7 +102,7 @@ header {
     margin: 1vmin; }
     .characteristics li .value {
       margin-left: 4vmin;
-      color: #364564; }
+      color: #d8defd; }
     .characteristics li .chname {
       color: #2a3e60; }
 
@@ -152,6 +152,11 @@ header {
       display: block;
       grid-column: 1/4; }
 
+.updatemessage {
+  height: 40vmin;
+  font-size: 8vmin;
+  align-self: center; }
+
 @media screen and (max-width: 415px) {
   header .wrapper {
     justify-content: flex-end; }
@@ -190,5 +195,7 @@ header {
 
   .characteristics {
     grid-column: 1/3; } }
+.hidden {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */

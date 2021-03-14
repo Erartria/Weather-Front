@@ -1,63 +1,69 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Погода</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="style/main.css">
     <link rel="shortcut icon" href="img/png/icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="js/local_weather.js" async></script>
 </head>
 <body>
 <header>
     <h1>
-        Погода здесь
+        Weather here
     </h1>
     <div class="wrapper">
         <button id="refresh">
-            Обновить геолокацию
+            Refresh your geolocation
         </button>
     </div>
 </header>
 <main>
+    <div class="hidden wrapper updatemessage">
+        <div class="message">
+            Data upload...
+        </div>
+    </div>
     <section id="mylocationweather">
         <h3 class="cityname">
             Saint Petersburg
         </h3>
         <div class="briefly">
-            <img alt="Иконка погоды" class="weathericon picked" src="img/png/broken_clouds_mock.png">
+            <img alt="Иконка погоды" class="weathericon picked" src="img/png/weathericons/02d.png">
             <div class="temperature">
                 8 °C
             </div>
         </div>
         <ul class="characteristics">
             <li>
-                <div class="chname">Ветер</div>
+                <div class="chname">Wind</div>
                 <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
             </li>
             <li>
-                <div class="chname">Облачность</div>
+                <div class="chname">Cloud cover</div>
                 <div class="value">Broken clouds</div>
             </li>
             <li>
-                <div class="chname">Давление</div>
+                <div class="chname">Pressure</div>
                 <div class="value">1013 hpa</div>
             </li>
             <li>
-                <div class="chname">Влажность</div>
+                <div class="chname">Humidity</div>
                 <div class="value">52 %</div>
             </li>
             <li>
-                <div class="chname">Ветер</div>
+                <div class="chname">Coordinates</div>
                 <div class="value">[59.88, 30.42]</div>
             </li>
         </ul>
     </section>
     <section id="addition">
         <h2>
-            Избранное
+            Favorites
         </h2>
         <form id="add">
-            <input type="search" placeholder="Добавить новый город">
+            <input type="search" placeholder="Add new city">
             <button type="submit" id="addcity">+</button>
         </form>
     </section>
@@ -68,7 +74,7 @@
                     Moscow
                 </h3>
                 <div class="briefly">
-                    <img alt="Иконка погоды" class="weathericon" src="img/png/broken_clouds_mock.png">
+                    <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
                     <div class="temperature">
                         8 °C
                     </div>
@@ -78,23 +84,23 @@
                 </div>
                 <ul class="characteristics">
                     <li>
-                        <div class="chname">Ветер</div>
+                        <div class="chname">Wind</div>
                         <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
                     </li>
                     <li>
-                        <div class="chname">Облачность</div>
+                        <div class="chname">Cloud cover</div>
                         <div class="value">Broken clouds</div>
                     </li>
                     <li>
-                        <div class="chname">Давление</div>
+                        <div class="chname">Pressure</div>
                         <div class="value">1013 hpa</div>
                     </li>
                     <li>
-                        <div class="chname">Влажность</div>
+                        <div class="chname">Humidity</div>
                         <div class="value">52 %</div>
                     </li>
                     <li>
-                        <div class="chname">Ветер</div>
+                        <div class="chname">Coordinates</div>
                         <div class="value">[59.88, 30.42]</div>
                     </li>
                 </ul>
@@ -104,7 +110,7 @@
                     Hong-Kong
                 </h3>
                 <div class="briefly">
-                    <img alt="Иконка погоды" class="weathericon" src="img/png/broken_clouds_mock.png">
+                    <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
                     <div class="temperature">
                         8 °C
                     </div>
@@ -114,23 +120,23 @@
                 </div>
                 <ul class="characteristics">
                     <li>
-                        <div class="chname">Ветер</div>
+                        <div class="chname">Wind</div>
                         <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
                     </li>
                     <li>
-                        <div class="chname">Облачность</div>
+                        <div class="chname">Cloud cover</div>
                         <div class="value">Broken clouds</div>
                     </li>
                     <li>
-                        <div class="chname">Давление</div>
+                        <div class="chname">Pressure</div>
                         <div class="value">1013 hpa</div>
                     </li>
                     <li>
-                        <div class="chname">Влажность</div>
+                        <div class="chname">Humidity</div>
                         <div class="value">52 %</div>
                     </li>
                     <li>
-                        <div class="chname">Ветер</div>
+                        <div class="chname">Coordinates</div>
                         <div class="value">[59.88, 30.42]</div>
                     </li>
                 </ul>
@@ -140,7 +146,7 @@
                     Moscow
                 </h3>
                 <div class="briefly">
-                    <img alt="Иконка погоды" class="weathericon" src="img/png/broken_clouds_mock.png">
+                    <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
                     <div class="temperature">
                         8 °C
                     </div>
@@ -150,23 +156,23 @@
                 </div>
                 <ul class="characteristics">
                     <li>
-                        <div class="chname">Ветер</div>
+                        <div class="chname">Wind</div>
                         <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
                     </li>
                     <li>
-                        <div class="chname">Облачность</div>
+                        <div class="chname">Cloud cover</div>
                         <div class="value">Broken clouds</div>
                     </li>
                     <li>
-                        <div class="chname">Давление</div>
+                        <div class="chname">Pressure</div>
                         <div class="value">1013 hpa</div>
                     </li>
                     <li>
-                        <div class="chname">Влажность</div>
+                        <div class="chname">Humidity</div>
                         <div class="value">52 %</div>
                     </li>
                     <li>
-                        <div class="chname">Ветер</div>
+                        <div class="chname">Coordinates</div>
                         <div class="value">[59.88, 30.42]</div>
                     </li>
                 </ul>
@@ -176,7 +182,7 @@
                     Moscow
                 </h3>
                 <div class="briefly">
-                    <img alt="Иконка погоды" class="weathericon" src="img/png/broken_clouds_mock.png">
+                    <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
                     <div class="temperature">
                         8 °C
                     </div>
@@ -186,23 +192,23 @@
                 </div>
                 <ul class="characteristics">
                     <li>
-                        <div class="chname">Ветер</div>
+                        <div class="chname">Wind</div>
                         <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
                     </li>
                     <li>
-                        <div class="chname">Облачность</div>
+                        <div class="chname">Cloud cover</div>
                         <div class="value">Broken clouds</div>
                     </li>
                     <li>
-                        <div class="chname">Давление</div>
+                        <div class="chname">Pressure</div>
                         <div class="value">1013 hpa</div>
                     </li>
                     <li>
-                        <div class="chname">Влажность</div>
+                        <div class="chname">Humidity</div>
                         <div class="value">52 %</div>
                     </li>
                     <li>
-                        <div class="chname">Ветер</div>
+                        <div class="chname">Coordinates</div>
                         <div class="value">[59.88, 30.42]</div>
                     </li>
                 </ul>
