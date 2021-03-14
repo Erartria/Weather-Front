@@ -39,22 +39,24 @@ table {
 /*Background colors*/
 /*Font colors*/
 section {
-  margin: 1vmin 0; }
+  margin: max(1vmin, 5px) 0; }
 
 button {
-  height: 4vmin;
-  min-width: 4vmin;
-  font-size: 2vmin;
+  border: 2px #8da7e9 solid;
+  min-height: max(4vmin, 18px);
+  min-width: max(4vmin, 18px);
+  font-size: max(2vmin, 8px);
   border-radius: 5px;
   outline: none;
-  background-color: #8DA7E9;
+  background-color: #8da7e9;
   color: #212D43;
   text-align: center; }
   button:hover {
+    border-color: black;
     cursor: pointer; }
 
 h2 {
-  font-size: 5vmin; }
+  font-size: max(5vmin, 13px); }
 
 .wrapper {
   display: flex;
@@ -63,19 +65,20 @@ h2 {
 
 .cityname {
   color: #7e9cdf;
-  font-size: 5vmin;
+  font-size: max(5vmin, 12px);
   margin-left: 1vmin; }
 
 .briefly {
   display: grid;
-  grid-template-areas: 'weathericon weathericon temperature';
+  grid-template-areas: 'weathericon temperature';
   align-items: center;
   justify-items: center; }
   .briefly .weathericon {
     grid-area: weathericon;
-    max-width: 7.5vmin; }
+    max-width: max(5vmin * 1.5, 15px);
+    max-height: max(5vmin, 18px); }
   .briefly .picked {
-    max-width: 40vmin; }
+    max-width: 30vmin; }
   .briefly .temperature {
     white-space: nowrap;
     grid-area: temperature;
@@ -85,11 +88,14 @@ body {
   padding: 2%; }
 
 header {
-  display: flex; }
+  display: flex;
+  position: relative; }
   header h1 {
-    font-size: 8vmin; }
+    font-size: max(8vmin, 15px);
+    margin-right: 20%; }
   header button {
-    margin-left: 50vmin;
+    position: absolute;
+    left: 45%;
     font-size: 2vmin; }
 
 .characteristics {
@@ -97,11 +103,12 @@ header {
   .characteristics li {
     display: flex;
     justify-content: space-between;
-    font-size: 3vmin;
+    font-size: max(3vmin, 11px);
     border-radius: 1vmin;
     background-color: #7e9cdf;
     padding: 1vmin;
-    margin: 1vmin; }
+    margin: 1vmin;
+    min-width: 50%; }
     .characteristics li .value {
       margin-left: 4vmin;
       color: #364564; }
@@ -115,21 +122,31 @@ header {
   #mylocationweather .cityname {
     grid-column: 1/3; }
   #mylocationweather .temperature {
-    font-size: 8vmin; }
+    font-size: max(7vmin, 18px); }
+  #mylocationweather .weathericon {
+    max-height: max(35vmin, 40px);
+    min-height: auto; }
 
 #addition {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  position: relative;
   align-items: center; }
   #addition .wrapper {
     justify-content: center; }
+  #addition h2 {
+    margin-right: 38%; }
   #addition #add {
+    position: absolute;
+    left: 51%;
+    display: flex;
+    flex-wrap: nowrap;
     justify-self: center; }
     #addition #add input {
-      height: 4vmin;
-      width: 28vmin;
+      margin-right: 2px;
+      height: max(4vmin, 18px);
+      width: max(28vmin, 95px);
       padding: 1vmin;
-      font-size: 2vmin; }
+      font-size: max(2vmin, 7px); }
 
 .removecity {
   margin-right: 1vmin; }
@@ -137,14 +154,24 @@ header {
 .favoritescities {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 1vmin; }
+  column-gap: max(2vmin, 5px);
+  row-gap: max(3vmin, 15px); }
   .favoritescities .city {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    align-items: flex-end; }
+    position: relative;
+    border-bottom: #7e9cdf solid 3px;
+    grid-template-columns: 1fr 3fr 1fr; }
+    .favoritescities .city .cityname {
+      word-break: break-all;
+      max-width: 55%; }
+    .favoritescities .city .cityheader {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end; }
     .favoritescities .city .wrapper {
       justify-self: end; }
     .favoritescities .city .briefly {
+      position: absolute;
+      left: 60%;
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 'temperature weathericon'; }
       .favoritescities .city .briefly .weathericon {
@@ -153,30 +180,67 @@ header {
       .favoritescities .city .briefly .temperature {
         justify-self: right;
         white-space: nowrap;
-        font-size: 5vmin; }
+        font-size: max(5vmin, 10px); }
     .favoritescities .city ul {
       display: block;
       grid-column: 1/4; }
 
-@media screen and (max-width: 500px) {
-  header .wrapper {
-    justify-content: flex-end; }
-    header .wrapper #refresh {
-      font-size: 0;
-      padding: 1vmin;
-      background-image: url(../img/png/refresh_button.png);
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      height: 6vmin;
-      width: 8vmin; }
+/*@media screen and (max-width: 1230px) {
+  header {
+    h1 {
+      margin-right: 15%;
+    }
+  }
+  #addition {
+    h2 {
+      margin-right: 35%;
+    }
+  }
+}
 
-  #mylocationweather .temperature {
-    justify-self: center; }
+@media screen and (max-width: 980px) {
+  header {
+    h1 {
+      margin-right: 12%;
+    }
+  }
+  #addition {
+    h2 {
+      margin-right: 32%;
+    }
+  }
+}
+*/
+@media screen and (max-width: 500px) {
+  header {
+    position: static;
+    justify-content: space-between; }
+    header .wrapper {
+      justify-content: flex-end; }
+      header .wrapper #refresh {
+        position: inherit;
+        left: 0;
+        font-size: 0;
+        padding: 1vmin;
+        background-image: url(../img/png/refresh_button.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 6vmin;
+        width: 8vmin; }
+
+  #mylocationweather {
+    grid-template-columns: 1fr; }
+    #mylocationweather .cityname {
+      grid-column: 1; }
+    #mylocationweather .temperature {
+      justify-self: center;
+      font-size: max(7vmin * 1.5, 18px); }
+    #mylocationweather .picked {
+      max-width: 50vmin; }
 
   .favoritescities {
-    grid-template-columns: 1fr;
-    row-gap: 1vmin; }
+    grid-template-columns: 1fr; }
     .favoritescities .city {
       grid-template-areas: "cityname briefly removebtn"; }
       .favoritescities .city .cityname {
@@ -187,14 +251,12 @@ header {
         grid-area: removebtn; }
 
   #addition {
-    grid-template-columns: 1fr; }
+    flex-wrap: wrap;
+    position: static; }
     #addition #add {
-      justify-self: left; }
-
-  .briefly {
-    grid-column: 1/3; }
-
-  .characteristics {
-    grid-column: 1/3; } }
+      position: inherit;
+      margin-left: 1vmin;
+      margin-top: 1vmin;
+      flex-basis: 100%; } }
 
 /*# sourceMappingURL=main.css.map */
