@@ -71,7 +71,6 @@ header {
   position: relative;
   h1 {
     font-size: max(#{$h1_font}, 15px);
-    margin-right: 20%;
   }
   button {
     position: absolute;
@@ -167,7 +166,7 @@ header {
     border-bottom: $city_f_color solid 3px;
     grid-template-columns: 1fr 3fr 1fr;
     .cityname {
-      word-break: break-all;
+      word-break: break-word;
       max-width: 45%;
     }
     .cityheader {
