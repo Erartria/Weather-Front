@@ -168,7 +168,7 @@ header {
     grid-template-columns: 1fr 3fr 1fr;
     .cityname {
       word-break: break-all;
-      max-width: 55%;
+      max-width: 45%;
     }
     .cityheader {
       display: flex;
@@ -181,7 +181,7 @@ header {
 
     .briefly {
       position: absolute;
-      left: 60%;
+      left: 50%;
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 'temperature weathericon';
 
