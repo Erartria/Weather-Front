@@ -25,15 +25,11 @@
 }
 */
 
-@media screen and (max-width: 845px) {
+@media screen and (max-width: 700px) {
   header {
-    position: static;
     justify-content: space-between;
-    .wrapper {
-      justify-content: flex-end;
       #refresh {
-        position: inherit;
-        left: 0;
+        margin: 0;
         font-size: 0;
         padding: 1vmin;
         background-image: url(../img/png/refresh_button.png);
@@ -43,7 +39,6 @@
         height: $h1_font - 2vmin;
         width: $h1_font;
       }
-    }
   }
   #mylocationweather {
     grid-template-columns: 1fr;

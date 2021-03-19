@@ -1,6 +1,9 @@
 @import "reset.scss";
 @import "vars.scss";
 
+body {
+  min-width: 125px;
+}
 section {
   margin: max(1vmin, 5px) 0;
 }
@@ -45,6 +48,7 @@ h2 {
 
 
   .weathericon {
+    margin-left: 1vmin;
     grid-area: weathericon;
     max-width: max(#{$city_font}*1.5, 15px);
     max-height: max(#{$city_font}, 18px);
@@ -68,13 +72,13 @@ body {
 
 header {
   display: flex;
-  position: relative;
   h1 {
     font-size: max(#{$h1_font}, 15px);
   }
   button {
-    position: absolute;
-    left: 45%;
+    margin-left: 30%;
+
+    align-self: center;
     font-size: $button_font;
   }
 
@@ -93,7 +97,7 @@ header {
     margin: 1vmin;
     min-width: 50%;
     .value {
-      margin-left: 4vmin;
+      margin-left: max(4vmin, 3px);
       color: $characteristics_values_color;
     }
 
@@ -110,6 +114,7 @@ header {
   gap: 1vmin;
 
   .cityname {
+    word-break: break-word;
     grid-column: 1/3;
   }
 
@@ -124,20 +129,17 @@ header {
 }
 
 #addition {
+  width: 100%;
+  margin: max(2vmin, 8px) 0 max(3vmin, 10px) 0;
   display: flex;
-  position: relative;
+  justify-content: space-between;
   align-items: center;
   .wrapper {
     justify-content: center;
   }
 
-  h2 {
-    margin-right: 38%;
-  }
-
   #add {
-    position: absolute;
-    left: 51%;
+    width: 47vw;
     display: flex;
     flex-wrap: nowrap;
     justify-self: center;
@@ -163,11 +165,10 @@ header {
   row-gap: max(3vmin, 15px);
   .city {
     position: relative;
-    border-bottom: $city_f_color solid 3px;
     grid-template-columns: 1fr 3fr 1fr;
     .cityname {
-      word-break: break-word;
-      max-width: 45%;
+      word-break: normal;
+      width: 60%;
     }
     .cityheader {
       display: flex;
@@ -179,8 +180,8 @@ header {
     }
 
     .briefly {
-      position: absolute;
-      left: 50%;
+      margin-left: max(1vmin, 3px);
+      margin-right: max(1vmin, 3px);
       grid-template-columns: 1fr 1fr;
       grid-template-areas: 'temperature weathericon';
 
