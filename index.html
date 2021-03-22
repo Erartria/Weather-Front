@@ -20,41 +20,39 @@
     </div>
 </header>
 <main>
-    <div class="hidden wrapper updatemessage">
-        <div class="message">
-            Data upload...
+    <div class="wrapper updatemessage">
+        <div class="left-right animated">
+            Data upload
         </div>
     </div>
-    <section id="mylocationweather">
+    <section class="mylocationweather hidden">
         <h3 class="cityname">
-            Saint Petersburg
         </h3>
         <div class="briefly">
-            <img alt="Иконка погоды" class="weathericon picked" src="img/png/weathericons/02d.png">
-            <div class="temperature">
-                8 °C
-            </div>
+            <img class="weathericon picked">
+            <p class="temperature">
+            </p>
         </div>
         <ul class="characteristics">
             <li>
                 <div class="chname">Wind</div>
-                <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
+                <div class="value"></div>
             </li>
             <li>
                 <div class="chname">Cloud cover</div>
-                <div class="value">Broken clouds</div>
+                <div class="value"></div>
             </li>
             <li>
                 <div class="chname">Pressure</div>
-                <div class="value">1013 hpa</div>
+                <div class="value"></div>
             </li>
             <li>
                 <div class="chname">Humidity</div>
-                <div class="value">52 %</div>
+                <div class="value"></div>
             </li>
             <li>
                 <div class="chname">Coordinates</div>
-                <div class="value">[59.88, 30.42]</div>
+                <div class="value"></div>
             </li>
         </ul>
     </section>
@@ -67,154 +65,50 @@
             <button type="submit" id="addcity">+</button>
         </form>
     </section>
-    <section class="favorites">
+    <section>
         <ul class="favoritescities">
-            <li class="city">
-                <h3 class="cityname">
-                    Moscow
-                </h3>
-                <div class="briefly">
-                    <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
-                    <div class="temperature">
-                        8 °C
-                    </div>
-                </div>
-                <div class="wrapper">
-                    <button class="removecity">x</button>
-                </div>
-                <ul class="characteristics">
-                    <li>
-                        <div class="chname">Wind</div>
-                        <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
-                    </li>
-                    <li>
-                        <div class="chname">Cloud cover</div>
-                        <div class="value">Broken clouds</div>
-                    </li>
-                    <li>
-                        <div class="chname">Pressure</div>
-                        <div class="value">1013 hpa</div>
-                    </li>
-                    <li>
-                        <div class="chname">Humidity</div>
-                        <div class="value">52 %</div>
-                    </li>
-                    <li>
-                        <div class="chname">Coordinates</div>
-                        <div class="value">[59.88, 30.42]</div>
-                    </li>
-                </ul>
-            </li>
-            <li class="city">
-                <h3 class="cityname">
-                    Hong-Kong
-                </h3>
-                <div class="briefly">
-                    <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
-                    <div class="temperature">
-                        8 °C
-                    </div>
-                </div>
-                <div class="wrapper">
-                    <button class="removecity">x</button>
-                </div>
-                <ul class="characteristics">
-                    <li>
-                        <div class="chname">Wind</div>
-                        <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
-                    </li>
-                    <li>
-                        <div class="chname">Cloud cover</div>
-                        <div class="value">Broken clouds</div>
-                    </li>
-                    <li>
-                        <div class="chname">Pressure</div>
-                        <div class="value">1013 hpa</div>
-                    </li>
-                    <li>
-                        <div class="chname">Humidity</div>
-                        <div class="value">52 %</div>
-                    </li>
-                    <li>
-                        <div class="chname">Coordinates</div>
-                        <div class="value">[59.88, 30.42]</div>
-                    </li>
-                </ul>
-            </li>
-            <li class="city">
-                <h3 class="cityname">
-                    Moscow
-                </h3>
-                <div class="briefly">
-                    <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
-                    <div class="temperature">
-                        8 °C
-                    </div>
-                </div>
-                <div class="wrapper">
-                    <button class="removecity">x</button>
-                </div>
-                <ul class="characteristics">
-                    <li>
-                        <div class="chname">Wind</div>
-                        <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
-                    </li>
-                    <li>
-                        <div class="chname">Cloud cover</div>
-                        <div class="value">Broken clouds</div>
-                    </li>
-                    <li>
-                        <div class="chname">Pressure</div>
-                        <div class="value">1013 hpa</div>
-                    </li>
-                    <li>
-                        <div class="chname">Humidity</div>
-                        <div class="value">52 %</div>
-                    </li>
-                    <li>
-                        <div class="chname">Coordinates</div>
-                        <div class="value">[59.88, 30.42]</div>
-                    </li>
-                </ul>
-            </li>
-            <li class="city">
-                <h3 class="cityname">
-                    Moscow
-                </h3>
-                <div class="briefly">
-                    <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
-                    <div class="temperature">
-                        8 °C
-                    </div>
-                </div>
-                <div class="wrapper">
-                    <button class="removecity">x</button>
-                </div>
-                <ul class="characteristics">
-                    <li>
-                        <div class="chname">Wind</div>
-                        <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
-                    </li>
-                    <li>
-                        <div class="chname">Cloud cover</div>
-                        <div class="value">Broken clouds</div>
-                    </li>
-                    <li>
-                        <div class="chname">Pressure</div>
-                        <div class="value">1013 hpa</div>
-                    </li>
-                    <li>
-                        <div class="chname">Humidity</div>
-                        <div class="value">52 %</div>
-                    </li>
-                    <li>
-                        <div class="chname">Coordinates</div>
-                        <div class="value">[59.88, 30.42]</div>
-                    </li>
-                </ul>
-            </li>
         </ul>
     </section>
+    <template>
+        <li class="city">
+            <div class="cityheader">
+                <h3 class="cityname">
+                    Almaty
+                </h3>
+                <div class="briefly">
+                    <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
+                    <p class="temperature">
+                        8 °C
+                    </p>
+                </div>
+                <div class="wrapper">
+                    <button class="removecity">x</button>
+                </div>
+            </div>
+            <ul class="characteristics">
+                <li>
+                    <div class="chname">Ветер</div>
+                    <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
+                </li>
+                <li>
+                    <div class="chname">Облачность</div>
+                    <div class="value">Broken clouds</div>
+                </li>
+                <li>
+                    <div class="chname">Давление</div>
+                    <div class="value">1013 hpa</div>
+                </li>
+                <li>
+                    <div class="chname">Влажность</div>
+                    <div class="value">52 %</div>
+                </li>
+                <li>
+                    <div class="chname">Координаты</div>
+                    <div class="value">[59.88, 30.42]</div>
+                </li>
+            </ul>
+        </li>
+    </template>
 </main>
 </body>
 </html>
