@@ -13,25 +13,16 @@
     <h1>
         Weather here
     </h1>
-    <div class="wrapper">
-        <button id="refresh">
-            Refresh your geolocation
-        </button>
-    </div>
+    <button id="refresh">
+        Refresh your geolocation
+    </button>
 </header>
 <main>
-    <div class="wrapper updatemessage">
-        <div class="left-right animated">
-            Data upload
-        </div>
-    </div>
-    <section class="mylocationweather hidden">
-        <h3 class="cityname">
-        </h3>
+    <section class="mylocationweather city">
+        <h3 class="cityname">Saint-Petersburg</h3>
         <div class="briefly">
-            <img class="weathericon picked">
-            <p class="temperature">
-            </p>
+            <img class="weathericon picked" src="img/png/weathericons/02d.png">
+            <p class="temperature">20 °C</p>
         </div>
         <ul class="characteristics">
             <li>
@@ -60,26 +51,139 @@
         <h2>
             Favorites
         </h2>
-        <form id="add">
-            <input type="search" placeholder="Add new city">
-            <button type="submit" id="addcity">+</button>
+        <form id="add" onsubmit="return false;">
+            <input type="search" id="searchfield" placeholder="Add new city">
+            <button id="addcity">+</button>
         </form>
     </section>
     <section>
-        <ul class="favoritescities">
+        <ul id="favoritescities">
+            <li class="city">
+                <div class="cityheader">
+                    <h3 class="cityname">Almaty</h3>
+                    <div class="briefly">
+                        <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
+                        <p class="temperature">20
+                        </p>
+                    </div>
+                    <div class="wrapper">
+                        <button class="removecity">x</button>
+                    </div>
+                </div>
+                <ul class="characteristics">
+                    <li>
+                        <div class="chname">Ветер</div>
+                        <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
+                    </li>
+                    <li>
+                        <div class="chname">Облачность</div>
+                        <div class="value">Broken clouds</div>
+                    </li>
+                    <li>
+                        <div class="chname">Давление</div>
+                        <div class="value">1013 hpa</div>
+                    </li>
+                    <li>
+                        <div class="chname">Влажность</div>
+                        <div class="value">52 %</div>
+                    </li>
+                    <li>
+                        <div class="chname">Координаты</div>
+                        <div class="value">[59.88, 30.42]</div>
+                    </li>
+                </ul>
+            </li>
+            <li class="city">
+                <div class="cityheader">
+                    <h3 class="cityname">
+                        Saint-Petersburg
+                    </h3>
+                    <div class="briefly">
+                        <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
+                        <p class="temperature">
+                            8 °C
+                        </p>
+                    </div>
+                    <div class="wrapper">
+                        <button class="removecity">x</button>
+                    </div>
+                </div>
+                <ul class="characteristics">
+                    <li>
+                        <div class="chname">Ветер</div>
+                        <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
+                    </li>
+                    <li>
+                        <div class="chname">Облачность</div>
+                        <div class="value">Broken clouds</div>
+                    </li>
+                    <li>
+                        <div class="chname">Давление</div>
+                        <div class="value">1013 hpa</div>
+                    </li>
+                    <li>
+                        <div class="chname">Влажность</div>
+                        <div class="value">52 %</div>
+                    </li>
+                    <li>
+                        <div class="chname">Координаты</div>
+                        <div class="value">[59.88, 30.42]</div>
+                    </li>
+                </ul>
+            </li>
+            <li class="city">
+                <div class="cityheader">
+                    <h3 class="cityname">
+                        Лланвайр Пуллгвингилл
+                    </h3>
+                    <div class="briefly">
+                        <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
+                        <p class="temperature">
+                            8 °C
+                        </p>
+                    </div>
+                    <div class="wrapper">
+                        <button class="removecity">x</button>
+                    </div>
+                </div>
+                <ul class="characteristics">
+                    <li>
+                        <div class="chname">Ветер</div>
+                        <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
+                    </li>
+                    <li>
+                        <div class="chname">Облачность</div>
+                        <div class="value">Broken clouds</div>
+                    </li>
+                    <li>
+                        <div class="chname">Давление</div>
+                        <div class="value">1013 hpa</div>
+                    </li>
+                    <li>
+                        <div class="chname">Влажность</div>
+                        <div class="value">52 %</div>
+                    </li>
+                    <li>
+                        <div class="chname">Координаты</div>
+                        <div class="value">[59.88, 30.42]</div>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </section>
-    <template>
+    <template id="loader">
+        <div class="bar">
+            <div class="line">
+            </div>
+        </div>
+    </template>
+    <template id="enCard">
         <li class="city">
             <div class="cityheader">
-                <h3 class="cityname">
-                    Almaty
-                </h3>
+                <h3 class="cityname"></h3>
                 <div class="briefly">
                     <img alt="Иконка погоды" class="weathericon" src="img/png/weathericons/02d.png">
-                    <p class="temperature">
-                        8 °C
-                    </p>
+                    <p class="temperature"></p>
                 </div>
                 <div class="wrapper">
                     <button class="removecity">x</button>
@@ -87,24 +191,24 @@
             </div>
             <ul class="characteristics">
                 <li>
-                    <div class="chname">Ветер</div>
-                    <div class="value">Moderate breeze, 6.0 m/s, North-northwest</div>
+                    <div class="chname">Wind</div>
+                    <div class="value"></div>
                 </li>
                 <li>
-                    <div class="chname">Облачность</div>
-                    <div class="value">Broken clouds</div>
+                    <div class="chname">Cloud cover</div>
+                    <div class="value"></div>
                 </li>
                 <li>
-                    <div class="chname">Давление</div>
-                    <div class="value">1013 hpa</div>
+                    <div class="chname">Pressure</div>
+                    <div class="value"></div>
                 </li>
                 <li>
-                    <div class="chname">Влажность</div>
-                    <div class="value">52 %</div>
+                    <div class="chname">Humidity</div>
+                    <div class="value"></div>
                 </li>
                 <li>
-                    <div class="chname">Координаты</div>
-                    <div class="value">[59.88, 30.42]</div>
+                    <div class="chname">Coordinates</div>
+                    <div class="value"></div>
                 </li>
             </ul>
         </li>
