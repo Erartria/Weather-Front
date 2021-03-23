@@ -2,7 +2,7 @@ const APIurl = "https://api.openweathermap.org/data/2.5/weather?"
 const APIkey = "appid=275483d966e6fd1ad712f36660db4ea6"
 const APIlang = "&lang=en"
 const APIunits = "&units=metric"
-
+initLocalStorage()
 
 
 document.getElementById('refresh').onclick = async function () {
