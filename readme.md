@@ -10,7 +10,7 @@ ____
 
 ![Desktop](https://github.com/Erartria/web_6sem/blob/master/img/readme/desktop.jpg)
 
-![Mobile](https://github.com/Ergitartria/web_6sem/blob/master/img/readme/mobile.jpg)
+![Mobile](https://github.com/Erartria/web_6sem/blob/master/img/readme/mobile.jpg)
 
 ____
 
