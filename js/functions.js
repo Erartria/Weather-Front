@@ -99,10 +99,13 @@ async function createCard(type, cityName, templateID) {
                         window.localStorage.setItem('favoritescities', JSON.stringify(Array.from(citySet)))
                     }
                     clone.querySelector('.removecity').addEventListener('click', function () {
-                        parent.removeChild(clone)
                         const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritescities')))
-                        citySet.delete(cityName)
+                        citySet.delete(rep.city)
+                        citySet.forEach(city => {
+                            console.log(city)
+                        })
                         window.localStorage.setItem('favoritescities', JSON.stringify(Array.from(citySet)))
+                        parent.removeChild(clone)
                     })
                 })
                 .catch(er => {
