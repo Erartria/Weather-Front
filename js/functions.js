@@ -2,24 +2,13 @@ const APIurl = "https://api.openweathermap.org/data/2.5/weather?"
 const APIkey = "appid=275483d966e6fd1ad712f36660db4ea6"
 const APIlang = "&lang=en"
 const APIunits = "&units=metric"
-initLocalStorage()
-
-
-document.getElementById('refresh').onclick = async function () {
-    currentLocationCard()
-
-}
-
-document.getElementById('addcity').onclick = async function () {
-    await createCard(document.getElementById('searchfield').value, 'enCard').catch(alert)
-}
-
 function initLocalStorage() {
     if (window.localStorage.getItem("default_city") === null)
         localStorage["default_city"] = "Saint Petersburg"
     if (window.localStorage.getItem("favoritescities") === null)
         localStorage["favoritescities"] = JSON.stringify(["Moscow", "Almaty"])
 }
+
 function htmlToObject(weatherReportList) {
     const keys = weatherReportList.getElementsByClassName('chname')
     const values = weatherReportList.getElementsByClassName('value');
@@ -32,12 +21,13 @@ function htmlToObject(weatherReportList) {
     obj.temperature = weatherReportList.getElementsByClassName('temperature')[0]
     obj.weathericon = weatherReportList.getElementsByClassName('weathericon')[0]
     obj.cityname = weatherReportList.getElementsByClassName('cityname')[0]
+
     return obj;
 }
 
 async function fillCharacteristics(locationOrCity, params) {
-    await request(locationOrCity)
-        .then((req) => {
+    return await request(locationOrCity)
+        .then(req => {
             const weather = req.weather[0]
             const main = req.main
             const report = params
@@ -47,42 +37,40 @@ async function fillCharacteristics(locationOrCity, params) {
             report.params["cloud cover"].textContent = weather.description;
             report.params['pressure'].textContent = main.pressure + ' hpa'
             report.params['humidity'].textContent = main.humidity + ' %'
-            report.params['coordinates'].textContent = `[${req.coord.lon.toFixed(2)}, ${req.coord.lat.toFixed(2)}]`
-            report.cityname.textContent = req.name
+            report.params['coordinates'].textContent = `[${req.coord.lat.toFixed(2)}, ${req.coord.lon.toFixed(2)}]`
+            report.cityname.textContent = `${req.name} (${req.sys.country})`
+            report.city = req.name
             return report
         })
         .catch(error => {
             throw error
         })
-
-
 }
 
-function dataLoad(loadingNode, func, delay) {
-    if (loadingNode.parentNode
-        .querySelector('.' + document.getElementById('loader').content.firstElementChild.className))
+async function dataLoad(type, loadingNode, func, delay) {
+    if (type === 'current' && loadingNode.parentNode.getElementsByClassName('mylocationweather').length ===2)
         return 0
-    const loadingNodeClone = loadingNode.cloneNode()
-    const parentNode = loadingNode.parentNode
-    const loaderClone = document.getElementById('loader').content.firstElementChild.cloneNode(true)
-    const defDisp = loadingNode.style.display
-    loadingNodeClone.prepend(loaderClone)
-    loadingNodeClone.classList.add("loading")
-    loadingNodeClone.style.display = 'block'
-    loadingNodeClone.firstChild.style.margin = `${loadingNode.scrollHeight.valueOf() / 2}px auto`
-    loadingNode.style.display = 'none'
-    parentNode.prepend(loadingNodeClone)
-
     setTimeout(async function () {
         await func()
         parentNode.removeChild(loadingNodeClone)
         loadingNode.style.display = defDisp
     }, delay)
+    const loadingNodeClone = loadingNode.cloneNode()
+    const parentNode = loadingNode.parentNode
+    const loaderClone = document.getElementById('loader').content.firstElementChild.cloneNode(true)
+    const defDisp = loadingNode.style.display
+    loadingNodeClone.append(loaderClone)
+    loadingNodeClone.classList.add("loading")
+    loadingNodeClone.style.display = 'block'
+    loadingNodeClone.firstChild.style.margin = `${loadingNode.scrollHeight.valueOf() / 2}px auto`
+    loadingNode.style.display = 'none'
+    parentNode.insertBefore(loadingNodeClone, parentNode.children[Array.prototype.indexOf.call(parentNode.children, loadingNode) + 1])
+
 }
 
-function currentLocationCard() {
+async function currentLocationCard() {
     const currentCard = document.querySelector('.mylocationweather')
-    dataLoad(currentCard, function () {
+    await dataLoad('current', currentCard, async function () {
         let params = htmlToObject(currentCard)
         navigator.geolocation.getCurrentPosition(async function (position) {
                 await fillCharacteristics([position.coords.latitude, position.coords.longitude], params)
@@ -90,35 +78,47 @@ function currentLocationCard() {
             async function () {
                 await fillCharacteristics(this.localStorage['default_city'], params)
             })
-    }, 800)
+    }, 1000)
 }
 
-async function createCard(cityName, templateID) {
-    let citySet = new Set(JSON.parse(window.localStorage.getItem('favoritescities')))
-    if (citySet.has(cityName)) {
-        throw new CityWithThisNameHasAlreadyAtLocalStorage(cityName)
-    }
-    citySet.add(cityName)
-
+async function createCard(type, cityName, templateID) {
     const parent = document.getElementById('favoritescities')
     let clone = document.getElementById(templateID).content.firstElementChild.cloneNode(true)
+    parent.append(clone)
     const params = htmlToObject(clone)
-    await fillCharacteristics(cityName, params)
-        .then(() => {
-            window.localStorage.setItem('favoritescities', JSON.stringify(Array.from(citySet)))
-            clone.querySelector('.removecity').addEventListener('click', function () {
-                parent.removeChild(clone)
-                let citySet = new Set(JSON.parse(window.localStorage.getItem('favoritescities')))
-                citySet.delete(cityName)
-                window.localStorage.setItem('favoritescities', JSON.stringify(Array.from(citySet)))
-            })
-            parent.append(clone)
-        })
-        .catch(error => {
-            throw error
-        })
-
+    dataLoad('create', clone,
+        async function () {
+            await fillCharacteristics(cityName, params)
+                .then(rep => {
+                    if (type === 'create') {
+                        const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritescities')))
+                        if (citySet.has(rep.city)) {
+                            throw new CityWithThisNameHasAlreadyAtLocalStorage(rep.city)
+                        }
+                        citySet.add(rep.city)
+                        window.localStorage.setItem('favoritescities', JSON.stringify(Array.from(citySet)))
+                    }
+                    clone.querySelector('.removecity').addEventListener('click', function () {
+                        parent.removeChild(clone)
+                        const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritescities')))
+                        citySet.delete(cityName)
+                        window.localStorage.setItem('favoritescities', JSON.stringify(Array.from(citySet)))
+                    })
+                })
+                .catch(er => {
+                    parent.removeChild(clone)
+                    alert(er)
+                })
+        }, 500)
 }
+
+async function loadLocalStorageCards() {
+    const arr = JSON.parse(window.localStorage.getItem('favoritescities'))
+    for (let i = 0; i < arr.length; i++) {
+        await createCard('load', arr[i], 'enCard')
+    }
+}
+
 
 
 async function request(locationOrCity) {
@@ -133,7 +133,7 @@ async function request(locationOrCity) {
                 }
                 if (response.status === 400) {
                     throw new Error('text field can\'t be empty!')
-                } else if(response.status === 401) {
+                } else if (response.status === 401) {
                     throw new RequestProblem(
                         'problems with API key on the web service side',
                         response.status
@@ -164,7 +164,7 @@ function CityWithThisNameHasAlreadyAtLocalStorage(name) {
     this.name = "CityWithThisNameHasAlreadyAtLocalStorage: ";
     this.message = `a card with location ${name} has already been created. You can only create one card for one city!`;
     this.toString = function () {
-        return this.name + '. ' + this.message
+        return this.name + this.message
     };
 }
 
