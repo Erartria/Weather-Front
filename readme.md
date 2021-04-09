@@ -72,4 +72,4 @@ ____
 - [x] Выделить для запроса локации и города отдельные функции
 - [x] Использовать один стиль camel/snake case (default_city для localstorage - не очень изменить на camelCase)
 - [x] Разделить все функции js на несколько файлов по назначению (request, localstorage, main и т.д.)
-- [ ] Параллельно загружать карточки для localStorage в разделе ```Favourites```
+- [x] Параллельно загружать карточки для localStorage в разделе ```Favourites```

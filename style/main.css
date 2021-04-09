@@ -160,7 +160,8 @@ header {
   row-gap: max(3vmin, 15px); }
   #favoritescities .city {
     position: relative;
-    grid-template-columns: 1fr 3fr 1fr; }
+    grid-template-columns: 1fr 3fr 1fr;
+    display: block; }
     #favoritescities .city .cityname {
       word-break: normal;
       width: 50%; }

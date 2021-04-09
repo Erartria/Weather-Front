@@ -175,7 +175,7 @@ header {
   .city {
     position: relative;
     grid-template-columns: 1fr 3fr 1fr;
-
+    display: block;
     .cityname {
       word-break: normal;
       width: 50%;

@@ -1,5 +1,3 @@
-
-
 window.onload = async function () {
     initLocalStorage()
     await loadLocalStorageCards()

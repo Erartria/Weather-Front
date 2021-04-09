@@ -10,7 +10,7 @@ function initLocalStorage() {
         localStorage["favoritesCities"] = JSON.stringify(["Moscow", "Almaty"])
 }
 
-async function dataLoad(type, loadingNode, func, delay) {
+function dataLoad(type, loadingNode, func, delay) {
     if (type === 'current' && loadingNode.parentNode.getElementsByClassName('mylocationweather').length === 2)
         return 0
     const loadingNodeClone = loadingNode.cloneNode()
@@ -25,8 +25,8 @@ async function dataLoad(type, loadingNode, func, delay) {
     parentNode.insertBefore(loadingNodeClone, parentNode.children[Array.prototype.indexOf.call(parentNode.children, loadingNode) + 1])
     setTimeout(async function () {
         await func()
-            loadingNode.style.display = defDisp
-            parentNode.removeChild(loadingNodeClone)
+        loadingNode.style.display = defDisp
+        parentNode.removeChild(loadingNodeClone)
     }, delay)
 }
 
@@ -76,9 +76,31 @@ async function createCard(type, cityName, templateID) {
 
 async function loadLocalStorageCards() {
     const arr = JSON.parse(window.localStorage.getItem('favoritesCities'))
-    for (let i = 0; i < arr.length; i++) {
-        await createCard('load', arr[i], 'enCard')
-    }
+
+    const f = await Promise.all(arr.map(
+        async (cityName) => {
+            return await requestCity(cityName)
+        }
+    ))
+
+    f.forEach(cityStats => {
+        const parent = document.getElementById('favoritescities')
+        let clone = document.getElementById('enCard').content.firstElementChild.cloneNode(true)
+        parent.append(clone)
+        const params = htmlToObject(clone)
+        dataLoad('create', clone,
+            function () {
+                let rep = fill(cityStats, params)
+                clone.querySelector('.removecity').addEventListener('click', function () {
+                    console.log(rep)
+                    const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritesCities')))
+                    citySet.delete(rep.city)
+                    window.localStorage.setItem('favoritesCities', JSON.stringify(Array.from(citySet)))
+                    parent.removeChild(clone)
+                })
+            },
+            800)
+    })
 }
 
 function CityWithThisNameHasAlreadyAtLocalStorage(name) {
