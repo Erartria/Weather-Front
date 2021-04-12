@@ -1,14 +1,13 @@
 window.onload = async function () {
-    initLocalStorage()
-    await loadLocalStorageCards()
-    await currentLocationCard()
+    initLocalStorage();
+    await Promise.all([loadLocalStorageCards(), currentLocationCard()]);
 }
 
 document.getElementById('refresh').onclick = async function () {
-    await currentLocationCard()
+    await currentLocationCard();
 }
 
 document.getElementById('addcity').onclick = async function () {
-    await createCard('create', document.getElementById('searchfield').value, 'enCard')
+    await createCard('create', document.getElementById('searchfield').value, 'enCard');
 }
 
