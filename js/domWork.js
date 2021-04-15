@@ -55,7 +55,8 @@ function removeCityButtonHandler(elementsParent, element, report) {
         const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritesCities')));
         citySet.delete(report.city);
         window.localStorage.setItem('favoritesCities', JSON.stringify(Array.from(citySet)));
-        elementsParent.removeChild(element);});
+        elementsParent.removeChild(element);
+    });
 }
 
 async function createCard(type, cityName, templateID) {
@@ -68,7 +69,7 @@ async function createCard(type, cityName, templateID) {
             fillCharacteristics(cityName, params)
                 .then(rep => {
                     favouriteCityStorageHandler(type, rep, parent, clone);
-					removeCityButtonHandler(parent, clone, rep)
+                    removeCityButtonHandler(parent, clone, rep)
                 })
                 .catch(er => {
                     parent.removeChild(clone);
@@ -93,7 +94,7 @@ async function loadLocalStorageCards() {
         dataLoad('create', clone,
             function () {
                 var rep = fill(cityStats, params);
-                removeCityButtonHandler(parent,clone,rep)
+                removeCityButtonHandler(parent, clone, rep)
             },
             1000);
     })
