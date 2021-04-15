@@ -49,12 +49,12 @@ function favouriteCityStorageHandler(type, rep, clone) {
     }
 }
 
-function removeCityButtonHandler(parent, clone, rep) {
-    clone.querySelector('.removecity').addEventListener('click', function () {
+function removeCityButtonHandler(elementsParent, element, report) {
+    element.querySelector('.removecity').addEventListener('click', function () {
         const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritesCities')));
-        citySet.delete(rep.city);
+        citySet.delete(report.city);
         window.localStorage.setItem('favoritesCities', JSON.stringify(Array.from(citySet)));
-        parent.removeChild(clone);});
+        parent.removeChild(elementsParent);});
 }
 
 async function createCard(type, cityName, templateID) {
