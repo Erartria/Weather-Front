@@ -25,15 +25,6 @@ function dataLoad(type, loadingNode, func, delay) {
     }, delay);
 }
 
-function removeFavouriteCityButtonHandler(clone, rep) {
-    clone.querySelector('.removecity').addEventListener('click', function () {
-        const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritesCities')));
-        citySet.delete(rep.city);
-        window.localStorage.setItem('favoritesCities', JSON.stringify(Array.from(citySet)));
-        parent.removeChild(clone);
-    });
-}
-
 async function currentLocationCard() {
     const currentCard = document.querySelector('.mylocationweather');
     await dataLoad('current', currentCard, async function () {
@@ -50,13 +41,20 @@ async function currentLocationCard() {
 function favouriteCityStorageHandler(type, rep, clone) {
     if (type === 'create') {
         const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritesCities')));
-        if (citySet.has(rep.name)) {
-            throw new CityWithThisNameHasAlreadyAtLocalStorage(rep.name);
+        if (citySet.has(rep.city)) {
+            throw new CityWithThisNameHasAlreadyAtLocalStorage(rep.city);
         }
-        citySet.add(rep.name);
+        citySet.add(rep.city);
         window.localStorage.setItem('favoritesCities', JSON.stringify(Array.from(citySet)));
     }
-    removeFavouriteCityButtonHandler(clone,rep);
+}
+
+function removeCityButtonHandler(parent, clone, rep) {
+    clone.querySelector('.removecity').addEventListener('click', function () {
+        const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritesCities')));
+        citySet.delete(rep.city);
+        window.localStorage.setItem('favoritesCities', JSON.stringify(Array.from(citySet)));
+        parent.removeChild(clone);});
 }
 
 async function createCard(type, cityName, templateID) {
@@ -68,10 +66,8 @@ async function createCard(type, cityName, templateID) {
         async function () {
             fillCharacteristics(cityName, params)
                 .then(rep => {
-                    if (typeof rep !== "undefined")
-                        favouriteCityStorageHandler(type, rep, clone);
-                    else
-                        parent.removeChild(clone);
+                    favouriteCityStorageHandler(type, rep, parent, clone);
+					removeCityButtonHandler(parent, clone, rep)
                 })
                 .catch(er => {
                     parent.removeChild(clone);
@@ -95,8 +91,8 @@ async function loadLocalStorageCards() {
         const params = htmlToObject(clone);
         dataLoad('create', clone,
             function () {
-                let rep = fill(cityStats, params);
-                removeFavouriteCityButtonHandler(clone,rep);
+                var rep = fill(cityStats, params);
+                removeCityButtonHandler(parent,clone,rep)
             },
             1000);
     })

@@ -38,8 +38,7 @@ async function fillCharacteristics(locationOrCity, params) {
 
     return f(locationOrCity)
         .then(req => {
-            fill(req, params);
-            return req;
+            return fill(req, params);
         })
         .catch(error => {
             alert(error);
