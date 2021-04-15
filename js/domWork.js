@@ -54,7 +54,7 @@ function removeCityButtonHandler(elementsParent, element, report) {
         const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritesCities')));
         citySet.delete(report.city);
         window.localStorage.setItem('favoritesCities', JSON.stringify(Array.from(citySet)));
-        parent.removeChild(elementsParent);});
+        elementsParent.removeChild(elementsParent);});
 }
 
 async function createCard(type, cityName, templateID) {
