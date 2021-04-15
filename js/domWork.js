@@ -50,11 +50,12 @@ function favouriteCityStorageHandler(type, rep, clone) {
 }
 
 function removeCityButtonHandler(elementsParent, element, report) {
+    console.log(elementsParent, element)
     element.querySelector('.removecity').addEventListener('click', function () {
         const citySet = new Set(JSON.parse(window.localStorage.getItem('favoritesCities')));
         citySet.delete(report.city);
         window.localStorage.setItem('favoritesCities', JSON.stringify(Array.from(citySet)));
-        elementsParent.removeChild(elementsParent);});
+        elementsParent.removeChild(element);});
 }
 
 async function createCard(type, cityName, templateID) {
