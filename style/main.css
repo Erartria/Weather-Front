@@ -221,7 +221,7 @@ header {
     background: #7e9cdf;
     box-shadow: -0.1em 0.1em 0.01em #7e9cdf, 0.1em -0.1em 0.01em #7e9cdf, -0.1em -0.1em 0.01em #7e9cdf, 0.1em 0.1em 0.01em #7e9cdf;
     /* Animation */
-    animation: move 5s ease-in-out infinite alternate; }
+    animation: move 0.9s ease-in-out infinite alternate; }
 
 .hidden {
   display: none; }

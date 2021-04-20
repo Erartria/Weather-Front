@@ -15,32 +15,31 @@ function htmlToObject(weatherReportList) {
 }
 
 function fill(req, params) {
-    const weather = req.weather[0];
-    const main = req.main;
     const report = params;
-    report.weathericon.src = 'img/png/weathericons/' + weather.icon + '.png';
-    report.temperature.textContent = Math.round(main.temp) + '°C';
-    report.params['wind'].textContent = req['wind'].speed + ' m/s';
-    report.params["cloud cover"].textContent = weather.description;
-    report.params['pressure'].textContent = main.pressure + ' hpa';
-    report.params['humidity'].textContent = main.humidity + ' %';
-    report.params['coordinates'].textContent = `[${req.coord.lat.toFixed(2)}, ${req.coord.lon.toFixed(2)}]`;
-    report.cityname.textContent = `${req.name} (${req.sys.country})`;
+    report.weathericon.src = 'img/png/weathericons/' + req.icon + '.png';
+    report.temperature.textContent = Math.round(req.temperature) + '°C';
+    report.params['wind'].textContent = req.wind + ' m/s';
+    report.params["cloud cover"].textContent = req.cloud;
+    report.params['pressure'].textContent = req.pressure + ' hpa';
+    report.params['humidity'].textContent = req.humidity + ' %';
+    report.params['coordinates'].textContent = `[${req.coordinates.latitude.toFixed(2)}, ${req.coordinates.longitude.toFixed(2)}]`;
+    report.cityname.textContent = `${req.name}`;
     report.city = req.name;
     return report;
 }
 
 async function fillCharacteristics(locationOrCity, params) {
     if (typeof locationOrCity === 'string')
-        var f =function () {return requestCity(locationOrCity)};
+        var f = async function () {return requestCity(locationOrCity)};
     else
-        var f =function () {return requestLocation(locationOrCity)};
-
+        var f = async function () {return requestLocation(locationOrCity)};
     return f(locationOrCity)
         .then(req => {
-            return fill(req, params);
+            console.log(req)
+            let tmp = fill(req.message, params)
+            return tmp;
+        }).catch(er => {
+            alert(er)
         })
-        .catch(error => {
-            alert(error);
-        });
+
 }
