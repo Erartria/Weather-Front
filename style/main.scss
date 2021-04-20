@@ -137,7 +137,6 @@ header {
   .wrapper {
     justify-content: center;
   }
-
   #add {
     width: 47vw;
     display: flex;
@@ -165,10 +164,9 @@ header {
   row-gap: max(3vmin, 15px);
   .city {
     position: relative;
-    grid-template-columns: 1fr 3fr 1fr;
     .cityname {
-      word-break: normal;
-      width: 50%;
+      word-break: break-word;
+      max-width: 80%;
     }
     .cityheader {
       display: flex;
