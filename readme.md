@@ -59,6 +59,7 @@ ____
 ____
 Установка:
 
-1. Скачайте и установите [бэк](https://github.com/Erartria/WeatherAPI)
-2. В ./js/request/config.js расскоментируйте строку `const APIurl = "http://localhost:3000"`, удалите останьные объявления переменной APIurl в этом файле.
-3. Откройте index.html
+1. Скачайте данный репозиторий. Это фронт моего проекта.
+2. Скачайте и установите [бэк](https://github.com/Erartria/WeatherAPI)
+3. В ./js/request/config.js расскоментируйте строку `const APIurl = "http://localhost:3000"`, удалите останьные объявления переменной APIurl в этом файле.
+4. Откройте index.html
